@@ -3,8 +3,9 @@ package com.test.mealz.repository
 import android.util.Log
 import com.test.mealz.service.MealsApiService
 import com.test.mealz.utils.Resource
+import javax.inject.Inject
 
-class MealsRepositoryImpl(
+class MealsRepositoryImpl @Inject constructor(
     private val mealsApiService: MealsApiService
 ) : MealsRepository {
 
