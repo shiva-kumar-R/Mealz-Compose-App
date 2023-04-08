@@ -3,12 +3,8 @@ package com.test.mealz.ui.views
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.test.mealz.ui.theme.MealzTheme
@@ -29,7 +25,7 @@ class MainActivity : ComponentActivity() {
 fun MealsCategoriesScreen() {
     val viewModel: MealsCategoryViewModel = viewModel()
     val meals = viewModel.getMeals()
-    Text(text = "Hello Compose")
+    Text(text = "Hello Compose" + meals.hashCode())
 }
 
 @Preview(showBackground = true)
