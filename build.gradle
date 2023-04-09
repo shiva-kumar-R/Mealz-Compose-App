@@ -15,7 +15,7 @@ buildscript {
 
         composeMaterialVersion = '1.4.0'
 
-        liveDataComposeVersion = '1.5.0-alpha02'
+        coilVersion = '2.2.2'
     }
     dependencies {
 
