@@ -68,9 +68,9 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-scalars:$rootProject.retrofitVersion"
 
     //Hilt
-    implementation("com.google.dagger:hilt-android:$rootProject.hiltVersion")
-    kapt("com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion")
-    implementation("androidx.hilt:hilt-navigation-fragment:$rootProject.hiltNavigationVersion")
+    implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
+    implementation "androidx.hilt:hilt-navigation-fragment:$rootProject.hiltNavigationVersion"
 
     //Coil
     implementation "io.coil-kt:coil-compose:$rootProject.coilVersion"
