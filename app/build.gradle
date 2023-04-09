@@ -72,6 +72,9 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion")
     implementation("androidx.hilt:hilt-navigation-fragment:$rootProject.hiltNavigationVersion")
 
+    //Livedata
+    implementation "androidx.compose.runtime:runtime-livedata:$rootProject.liveDataComposeVersion"
+
     implementation "androidx.compose.ui:ui:$rootProject.composeUiVersion"
     implementation "androidx.compose.ui:ui-tooling-preview:$rootProject.composeUiVersion"
     implementation "androidx.compose.material:material:$rootProject.composeMaterialVersion"

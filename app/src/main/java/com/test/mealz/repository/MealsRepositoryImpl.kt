@@ -18,7 +18,7 @@ class MealsRepositoryImpl @Inject constructor(
         if (response.isSuccessful && response.body() != null) {
             Resource.success(data = response.body())
         } else {
-            Resource.error(message = response.errorBody().toString())
+            Resource.error(message = "Code: ${response.code()} , Message: ${response.raw()}")
         }
     } catch (e: Exception) {
         Log.w(TAG, e)
