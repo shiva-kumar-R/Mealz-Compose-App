@@ -15,7 +15,9 @@ This is a sample meals android application developed in Jetpack Compose.
 ## Additional Gradle Dependencies needed
 
 - Add compose viewmodel dependendency. 
-`implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:<latest-version>'`
+```
+implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:<latest-version>'
+```
 
 - Add retrofit dependency.
 ``` 
@@ -33,4 +35,6 @@ implementation "androidx.hilt:hilt-navigation-fragment:<latest-version>"
 ```
 
 - Add coil dependency.
-`implementation "io.coil-kt:coil-compose:<latest-version>"`
+```
+implementation "io.coil-kt:coil-compose:<latest-version>"
+```
