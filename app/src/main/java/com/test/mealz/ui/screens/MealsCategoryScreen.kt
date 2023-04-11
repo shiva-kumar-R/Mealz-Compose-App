@@ -26,35 +26,36 @@ import com.test.mealz.viewmodel.MealsCategoryViewModel
 
 
 @Composable
-fun MealsCategoriesScreen() {
-    val viewModel: MealsCategoryViewModel = viewModel()
-
-    when (val meals = viewModel.viewState.value) {
+fun MealsCategoriesScreen(meals: MealsViewState, navCallback: (String) -> Unit) {
+    when (meals) {
         MealsViewState.LoadingState -> Unit
         is MealsViewState.SuccessState -> {
-            MealsContainer(meals = meals.mealsData)
+            MealsContainer(meals = meals.mealsData, navCallback)
         }
         MealsViewState.ErrorState -> Text(text = "Error")
     }
 }
 
 @Composable
-fun MealsContainer(meals: List<MealsResponse>) {
+fun MealsContainer(meals: List<MealsResponse>, navCallback: (String) -> Unit) {
     LazyColumn(contentPadding = PaddingValues(16.dp)) {
         items(meals) { meal ->
-            MealCategory(meal = meal)
+            MealCategory(meal = meal, navCallback)
         }
     }
 }
 
 @Composable
-fun MealCategory(meal: MealsResponse) {
+fun MealCategory(meal: MealsResponse, navCallback: (String) -> Unit) {
     Card(
         shape = RoundedCornerShape(8.dp),
         elevation = 2.dp,
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 16.dp)
+            .clickable {
+                navCallback(meal.id)
+            }
     ) {
         Row(
             modifier = Modifier.animateContentSize(),
@@ -112,6 +113,6 @@ fun MealContent(meal: MealsResponse) {
 @Composable
 fun DefaultPreview() {
     MealzTheme {
-        MealsCategoriesScreen()
+        MealsCategoriesScreen(meals = MealsViewState.LoadingState, { })
     }
 }

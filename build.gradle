@@ -16,6 +16,8 @@ buildscript {
         composeMaterialVersion = '1.4.0'
 
         coilVersion = '2.2.2'
+
+        composeNavigation = '2.5.3'
     }
     dependencies {
 
