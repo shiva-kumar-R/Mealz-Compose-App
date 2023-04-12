@@ -17,12 +17,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.test.mealz.model.MealsResponse
 import com.test.mealz.ui.model.MealsViewState
 import com.test.mealz.ui.theme.MealzTheme
-import com.test.mealz.viewmodel.MealsCategoryViewModel
 
 
 @Composable
