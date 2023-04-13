@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -21,7 +22,9 @@ import com.test.mealz.ui.screens.MealsDetailScreenPictureStatus.Expanded
 import com.test.mealz.ui.screens.MealsDetailScreenPictureStatus.Normal
 
 @Composable
-fun MealsDetailScreen(meal: MealsResponse?, toolBarActionClick: (String?) -> Unit) {
+fun MealsDetailScreen(meal: MealsResponse?,
+                      toolBarActionClick: (String?) -> Unit,
+                      toolBarLazyColmnActionClick: (String?) -> Unit) {
     var profilePictureState by remember { mutableStateOf(Normal) }
     val transition = updateTransition(targetState = profilePictureState, label = "")
     val imageSizeDp by transition.animateDp(targetValueByState = { it.size }, label = "")
@@ -66,14 +69,30 @@ fun MealsDetailScreen(meal: MealsResponse?, toolBarActionClick: (String?) -> Uni
                 profilePictureState = if (profilePictureState == Normal) Expanded
                 else Normal
             }) {
-            Text(text = "Change State of Meal Picture")
+            Text(
+                text = "Change State of Meal Picture",
+                style = MaterialTheme.typography.button
+            )
         }
         Button(modifier = Modifier
             .padding(top = 10.dp)
             .fillMaxWidth()
             .align(Alignment.CenterHorizontally),
             onClick = { toolBarActionClick(meal?.id) }) {
-            Text(text = "Collapsing Toolbar Test")
+            Text(
+                text = "Collapsing Toolbar Test",
+                style = MaterialTheme.typography.button
+            )
+        }
+        Button(modifier = Modifier
+            .padding(top = 10.dp)
+            .fillMaxWidth()
+            .align(Alignment.CenterHorizontally),
+            onClick = { toolBarActionClick(meal?.id) }) {
+            Text(
+                text = "Collapsing Toolbar LazyColumn Test",
+                style = MaterialTheme.typography.button
+            )
         }
     }
 }
