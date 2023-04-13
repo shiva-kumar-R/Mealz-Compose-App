@@ -12,6 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.test.mealz.ui.screens.MealsCategoriesScreen
 import com.test.mealz.ui.screens.MealsDetailScreen
+import com.test.mealz.ui.screens.MealsDetailScreenWithCollapsableBar
 import com.test.mealz.ui.theme.MealzTheme
 import com.test.mealz.viewmodel.MealDetailsViewModel
 import com.test.mealz.viewmodel.MealsCategoryViewModel
@@ -48,7 +49,18 @@ private fun FoodiezApp() {
             })
         ) {
             val viewModel: MealDetailsViewModel = hiltViewModel()
-            MealsDetailScreen(meal = viewModel.mealState.value)
+            MealsDetailScreen(meal = viewModel.mealState.value) { mealId ->
+                navController.navigate("destination_collapsable_bar_meal_details/${mealId}")
+            }
+        }
+        composable(
+            route = "destination_collapsable_bar_meal_details/{mealId}",
+            arguments = listOf(navArgument(name = "mealId") {
+                type = NavType.StringType
+            })
+        ) {
+            val viewModel: MealDetailsViewModel = hiltViewModel()
+            MealsDetailScreenWithCollapsableBar(meal = viewModel.mealState.value)
         }
     }
 }
